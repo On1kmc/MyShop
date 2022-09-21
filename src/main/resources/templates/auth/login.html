@@ -1,0 +1,379 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>My Pet-Project Shop</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="/public/img/icon/favicon.png">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" th:href="@{/public/css/meanmenu.min.css}">
+    <!-- animate css -->
+    <link rel="stylesheet" th:href="@{/public/css/animate.css}">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" th:href="@{/public/css/nivo-slider.css}">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" th:href="@{/public/css/owl.carousel.min.css}">
+    <!-- slick css -->
+    <link rel="stylesheet" th:href="@{/public/css/slick.css}">
+    <!-- price slider css -->
+    <link rel="stylesheet" th:href="@{/public/css/jquery-ui.min.css}">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" th:href="@{/public/css/font-awesome.min.css}">
+    <!-- fancybox css -->
+    <link rel="stylesheet" th:href="@{/public/css/jquery.fancybox.css}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" th:href="@{/public/css/bootstrap.min.css}">
+    <!-- default css  -->
+    <link rel="stylesheet" th:href="@{/public/css/default.css}">
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/public/style.css}">
+    <!-- responsive css -->
+    <link rel="stylesheet" th:href="@{/public/css/responsive.css}">
+
+    <!-- modernizr js -->
+    <script th:src="@{/public/js/vendor/modernizr-2.8.3.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Wrapper Start -->
+<div class="wrapper homepage">
+    <!-- Header Area Start -->
+    <header>
+        <!-- Header Top Start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Header Top left Start -->
+                    <div class="col-lg-4 col-md-12 d-center">
+                        <div class="header-top-left">
+                            <img th:src="@{/public/img/icon/call.png}" alt="">Звоните нам : +11 222 3333
+                        </div>
+                    </div>
+                    <!-- Header Top left End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Top End -->
+        <!-- Header Bottom Start -->
+        <div class="header-bottom header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                        <div class="logo">
+                            <a href="/"><img th:src="@{/public/img/logo/logo.png}" alt="logo-image"></a>
+                        </div>
+                    </div>
+                    <!-- Primary Vertical-Menu End -->
+                    <!-- Search Box Start -->
+                    <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                        <div class="middle-menu pull-right">
+                            <nav>
+                                <ul class="middle-menu-list">
+                                    <li><a href="/">Главная</a></li>
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="shop.html">Магазин<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="shop.html">Категории</a>
+                                                <!-- Start Two Step -->
+                                                <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                    <li><a href="shop.html">Product Category Name</a>
+                                                        <!-- Start Three Step -->
+                                                        <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="#">Навигация<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="/auth/login">Страница входа</a></li>
+                                            <li><a href="/auth/registration">Регистрация покупателя</a></li>
+                                            <li><a href="/auth/registration-market">Регистрация магазина</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="contact.html">Контакты</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Search Box End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Bottom End -->
+    </header>
+        <!-- Header Area End --> 
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- LogIn Page Start -->
+        <div class="log-in pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- New Customer Start -->
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <div class="new-customer">
+                                <h3>Новый пользователь</h3>
+                                <p class="mtb-10"><strong>Регистрация</strong></p>
+                                <p>Создав аккаунт вы сможете начать покупки</p>
+                                <a class="customer-btn" th:href="@{/auth/registration}">Продолжить</a>
+                            </div>
+                            <br/>
+                            <br/>
+                            <div class="new-customer">
+                                <h3>Новый магазин</h3>
+                                <p class="mtb-10"><strong>Регистрация</strong></p>
+                                <p>Создав аккаунт вы сможете начать наше сотрудничество размещая свои товары на нашем маркетплейсе.</p>
+                                <a class="customer-btn" th:href="@{/auth/registration-market}">Продолжить</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- New Customer End -->
+                    <!-- Returning Customer Start -->
+                    <div class="col-sm-6">
+                        <div class="well">
+                            <div class="return-customer">
+                                <h3 class="mb-10">ВХОД</h3>
+                                <p class="mb-10"><strong>Уже есть аккаунт?</strong></p>
+                                <form action="/process_login" method="post" name="f">
+                                    <div class="form-group">
+                                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Введите свой E-Mail...</label>
+                                        <input type="text" name="username" placeholder="Введите свой E-Mail..." id="input-email" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label">Введите пароль</label>
+                                        <input type="password" name="password" placeholder="Введите пароль..." id="input-password" class="form-control">
+                                    </div>
+                                    <div style="color:red" th:if="${param.error}">Неправильное имя или пароль</div>
+
+                                    <p class="lost-password"><a href="forgot-password.html">Забыли пароль?</a></p>
+                                    <input type="submit" value="Login" class="return-customer-btn">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Returning Customer End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- LogIn Page End -->
+    <!-- Company Policy Start -->
+    <div class="company-policy pb-60">
+        <div class="container">
+            <div class="row">
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/1.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Бесплатная доставка</h3>
+                            <p>Каждый заказ - доставим бесплатно!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/2.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Онлайн Поддержка 24/7</h3>
+                            <p>Без праздников и выходных!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/3.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Возврат денег</h3>
+                            <p>Гарантируем возврат денег в течении 7 дней!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/4.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Персональные скидки</h3>
+                            <p>При заказе от 3000 р.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+            </div>
+        </div>
+    </div>
+    <!-- Company Policy End -->
+
+    <footer class="off-white-bg">
+        <!-- Footer Top Start -->
+        <div class="footer-top pt-50 pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-4  col-md-7 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Contact us</h3>
+                            <div class="footer-content">
+                                <div class="loc-address">
+                                    <span><i class="fa fa-map-marker"></i>д. 38 Садовая ул., г. Москва, Россия.</span>
+                                    <span><i class="fa fa-envelope-o"></i>Почта : test@example.com</span>
+                                    <span><i class="fa fa-phone"></i>Телефон: + 11 222 3333</span>
+                                </div>
+                                <div class="payment-mth"><a><img class="img" th:src="@{/public/img/footer/1.png}" alt="payment-image"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Информация</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="#">Jobs</a></li>
+                                    <li><a href="#">Delivery Information</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Мой аккаунт</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Личный кабинет</a></li>
+                                    <li><a href="account.html">Список желаний</a></li>
+                                    <li><a href="#">Корзина</a></li>
+                                    <li><a href="account.html">Регистрация</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Магазины</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Все магазины</a></li>
+                                    <li><a href="#">Новые</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Помощь</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">FAQ</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Footer Top End -->
+    </footer>
+    <!-- Footer End -->
+</div>
+<!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script th:src="@{/public/js/vendor/jquery-1.12.4.min.js}"></script>
+    <!-- mobile menu js  -->
+    <script th:src="@{/public/js/jquery.meanmenu.min.js}"></script>
+    <!-- scroll-up js -->
+    <script th:src="@{/public/js/jquery.scrollUp.js}"></script>
+    <!-- owl-carousel js -->
+    <script th:src="@{/public/js/owl.carousel.min.js}"></script>
+    <!-- slick js -->
+    <script th:src="@{/public/js/slick.min.js}"></script>
+    <!-- wow js -->
+    <script th:src="@{/public/js/wow.min.js}"></script>
+    <!-- price slider js -->
+    <script th:src="@{/public/js/jquery-ui.min.js}"></script>
+    <script th:src="@{/public/js/jquery.countdown.min.js}"></script>
+    <!-- nivo slider js -->
+    <script th:src="@{/public/js/jquery.nivo.slider.js}"></script>
+    <!-- fancybox js -->
+    <script th:src="@{/public/js/jquery.fancybox.min.js}"></script>
+    <!-- bootstrap -->
+    <script th:src="@{/public/js/bootstrap.min.js}"></script>
+    <!-- popper -->
+    <script th:src="@{/public/js/popper.js}"></script>
+    <!-- plugins -->
+    <script th:src="@{/public/js/plugins.js}"></script>
+    <!-- main js -->
+    <script th:src="@{/public/js/main.js}"></script>
+</body>
+
+</html>

@@ -1,0 +1,561 @@
+<!doctype html>
+<html class="no-js" lang="en-US" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Home || Jantrik Bootstrap4 Template for Tools, Equipment Store</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" href="/public/css/meanmenu.min.css">
+    <!-- animate css -->
+    <link rel="stylesheet" href="/public/css/animate.css">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" href="/public/css/nivo-slider.css">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" href="/public/css/owl.carousel.min.css">
+    <!-- slick css -->
+    <link rel="stylesheet" href="/public/css/slick.css">
+    <!-- price slider css -->
+    <link rel="stylesheet" href="/public/css/jquery-ui.min.css">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css">
+    <!-- fancybox css -->
+    <link rel="stylesheet" href="/public/css/jquery.fancybox.css">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <!-- default css  -->
+    <link rel="stylesheet" href="/public/css/default.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/public/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/public/css/responsive.css">
+
+    <!-- modernizr js -->
+    <script th:src="@{public/js/vendor/modernizr-2.8.3.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Wrapper Start -->
+<div class="wrapper homepage">
+
+    <!-- Header Area Start -->
+    <header>
+        <!-- Header Top Start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Header Top left Start -->
+                    <div class="col-lg-4 col-md-12 d-center">
+                        <div class="header-top-left">
+                            <img th:src="@{/public/img/icon/call.png}" alt="">Звоните нам : +11 222 3333
+                        </div>
+                    </div>
+                    <!-- Header Top left End -->
+                    <!-- Search Box Start -->
+                    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                        <div class="search-box-view">
+                            <form action="#">
+                                <input type="text" class="email" placeholder="Поиск" name="product">
+                                <button type="submit" class="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Search Box End -->
+                    <!-- Header Top Right Start -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="header-top-right">
+                            <ul class="header-list-menu f-right">
+                                <!-- User Start -->
+                                <li><a href="#" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
+                                    <ul class="ht-dropdown">
+                                        <li><form id = "logout" th:action="@{/logout}" method = "post"/></li>
+                                        <li><a onclick = 'document.getElementById("logout").submit();' href="#">Выйти</a></li>
+                                    </ul>
+                                </li>
+                                <!-- User End -->
+                            </ul>
+                            <!-- Header-list-menu End -->
+                        </div>
+                    </div>
+                    <!-- Header Top Right End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Top End -->
+        <!-- Header Bottom Start -->
+        <div class="header-bottom header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                        <div class="logo">
+                            <a href="/"><img th:src="@{/public/img/logo/logo.png}" alt="logo-image"></a>
+                        </div>
+                    </div>
+                    <!-- Primary Vertical-Menu End -->
+                    <!-- Search Box Start -->
+                    <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                        <div class="middle-menu pull-right">
+                            <nav>
+                                <ul class="middle-menu-list">
+                                    <li><a href="/">Главная</a></li>
+                                    <li><a href="about.html">О нас</a></li>
+                                    <li><a href="shop.html">Магазин<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="shop.html">Категории</a>
+                                                <!-- Start Two Step -->
+                                                <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                    <li><a href="shop.html">Product Category Name</a>
+                                                        <!-- Start Three Step -->
+                                                        <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="#">Навигация<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="/auth/login">Страница входа</a></li>
+                                            <li><a href="/auth/registration">Регистрация покупателя</a></li>
+                                            <li><a href="/auth/registration-market">Регистрация магазина</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="contact.html">Контакты</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Search Box End -->
+                    <!-- Cartt Box Start -->
+                    <div class="col-lg-3 col-sm-7 col-7">
+                        <div class="cart-box text-right">
+                            <ul>
+                                <li><a th:href="@{/cart}" th:if="${person.getRole().equals('ROLE_USER')}"><i class="fa fa-shopping-basket"></i><span class="cart-counter" th:text="${person.getCart().getProducts().size()}">2</span></a>
+                                    <ul class="ht-dropdown main-cart-box" th:if="${person.getRole().equals('ROLE_USER')}">
+                                        <li>
+                                            <!-- Cart Box Start -->
+                                            <div class="single-cart-box" th:each="product1 : ${person.getCart().getProducts()}">
+                                                <div class="cart-img">
+                                                    <a href="#"><img th:src="@{../upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
+                                                </div>
+                                                <div class="cart-content">
+                                                    <h6><a href="product.html" th:text="${product1.getName()}">Products Name</a></h6>
+                                                    <span th:text = "'1 × ' + ${product1.getPrice()}">1 × $399.00</span>
+                                                </div>
+                                                <a class="del-icone"><i class="fa fa-window-close-o"></i></a>
+
+                                            </div>
+                                            <!-- Cart Box End -->
+
+                                            <!-- Cart Footer Inner Start -->
+                                            <div class="cart-footer fix">
+                                                <h5>total :<span class="f-right">Сумма заказа</span></h5>
+                                                <div class="cart-actions">
+                                                    <a class="checkout" href="checkout.html">Оформить заказ</a>
+                                                </div>
+                                            </div>
+                                            <!-- Cart Footer Inner End -->
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Cartt Box End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Bottom End -->
+    </header>
+        <!-- Header Area End --> 
+        <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="/shop">Магазин</a></li>
+                        <li class="active"><a href="#">Страница товара</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Product Thumbnail Start -->
+        <div class="main-product-thumbnail pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Main Thumbnail Image Start -->
+                    <div class="col-lg-5">
+                        <!-- Thumbnail Large Image start -->
+                        <div class="tab-content">
+                            <div id="thumb1" class="tab-pane active">
+                                <a data-fancybox="images" th:href="@{../upload/product/{article}/1.jpg(article=${product2.getArticle()})}"><img th:src="@{../upload/product/{article}/1.jpg(article=${product2.getArticle()})}" alt="product-view"></a>
+                            </div>
+                            <div id="thumb2" class="tab-pane" th:if="${files.length gt 1}">
+                                <a data-fancybox="images" th:href="@{../upload/product/{article}/2.jpg(article=${product2.getArticle()})}"><img th:src="@{../upload/product/{article}/2.jpg(article=${product2.getArticle()})}" alt="product-view"></a>
+                            </div>
+                            <div id="thumb3" class="tab-pane" th:if="${files.length gt 2}">
+                                <a data-fancybox="images" th:href="@{../upload/product/{article}/3.jpg(article=${product2.getArticle()})}"><img th:src="@{../upload/product/{article}/3.jpg(article=${product2.getArticle()})}" alt="product-view"></a>
+                            </div>
+                            <div id="thumb4" class="tab-pane" th:if="${files.length gt 3}">
+                                <a data-fancybox="images" th:href="@{../upload/product/{article}/4.jpg(article=${product2.getArticle()})}"><img th:src="@{../upload/product/{article}/4.jpg(article=${product2.getArticle()})}" alt="product-view"></a>
+                            </div>
+                        </div>
+                        <!-- Thumbnail Large Image End -->
+
+                        <!-- Thumbnail Image start -->
+                        <div class="product-thumbnail">
+                            <div class="thumb-menu nav">
+                                    <a class="active" data-toggle="tab" href="#thumb1">
+                                        <img th:src="@{../upload/product/{article}/1.jpg(article=${product2.getArticle()})}" alt="product-thumbnail"></a>
+                                <a th:if="${files.length gt 1}" data-toggle="tab" href="#thumb2"> <img th:src="@{../upload/product/{article}/2.jpg(article=${product2.getArticle()})}" alt="product-thumbnail"></a>
+                                <a th:if="${files.length gt 2}" data-toggle="tab" href="#thumb3"> <img th:src="@{../upload/product/{article}/3.jpg(article=${product2.getArticle()})}" alt="product-thumbnail"></a>
+                                <a th:if="${files.length gt 3}" data-toggle="tab" href="#thumb4"> <img th:src="@{../upload/product/{article}/4.jpg(article=${product2.getArticle()})}" alt="product-thumbnail"></a>
+                            </div>
+                        </div>
+                        <!-- Thumbnail image end -->
+                    </div>
+                    <!-- Main Thumbnail Image End -->
+                    <!-- Thumbnail Description Start -->
+                    <div class="col-lg-7">
+                        <div class="thubnail-desc fix">
+                            <h3 class="product-header" th:text="${product2.getName()}">Products Name Here</h3>
+
+                            <div class="pro-price mb-10">
+                                <p><span class="price" th:text="'Артикул: ' + ${product2.getArticle()}">Артикул</span></p>
+                            </div>
+                            <div class="pro-ref mb-15">
+                                <p><span class="in-stock">Цена</span><span class="sku" th:text="${product2.getPrice()} + 'p.'"></span></p>
+                            </div>
+                            <div class="box-quantity">
+                                <form action="#">
+                                    <input class="number" id="numeric" type="number" min="1" value="1">
+                                    <a class="add-cart" href="#">В корзину</a>
+                                </form>
+                            </div>
+                            <div class="product-link">
+                                <ul class="list-inline">
+                                    <li><a href="wishlist.html">Add to Wish List</a></li>
+                                </ul>
+                            </div>
+                            <p class="ptb-20" th:text="${product2.getDescription()}"></p>
+                        </div>
+                    </div>
+                    <!-- Thumbnail Description End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail End -->
+        <!-- Product Thumbnail Description Start -->
+        <div class="thumnail-desc pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <ul class="main-thumb-desc nav">
+                            <li><a class="active" data-toggle="tab" href="#dtail">Details</a></li>
+                            <li><a data-toggle="tab" href="#review">Reviews 1</a></li>
+                        </ul>
+                        <!-- Product Thumbnail Tab Content Start -->
+                        <div class="tab-content thumb-content border-default">
+                            <div id="dtail" class="tab-pane in active">
+                                <p th:text="${product2.getDescription()}">Здесь позже добавить полное описание товара!</p>
+
+                            </div>
+                            <div id="review" class="tab-pane">
+                                <!-- Reviews Start -->
+                                <div class="review">
+                                    <div class="group-title">
+                                        <h2>customer review</h2>
+                                    </div>
+                                    <h4 class="review-mini-title">Jantrik</h4>
+                                    <ul class="review-list">
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>Quality</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Jantrik</label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>price</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Review by <a href="https://themeforest.net/user/Jantrik">Jantrik</a></label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>value</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <label>Posted on 7/20/18</label>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                    </ul>
+                                </div>
+                                <!-- Reviews End -->
+                                <!-- Reviews Start -->
+                                <div class="review border-default universal-padding mt-30">
+                                    <h2 class="review-title mb-30">You're reviewing: <br><span>Go-Get'r Pushup Grips</span></h2>
+                                    <p class="review-mini-title">your rating</p>
+                                    <ul class="review-list">
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>Quality</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>price</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                        <!-- Single Review List Start -->
+                                        <li>
+                                            <span>value</span>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star-o"></i>
+                                        </li>
+                                        <!-- Single Review List End -->
+                                    </ul>
+                                    <!-- Reviews Field Start -->
+                                    <div class="riview-field mt-40">
+                                        <form autocomplete="off" action="#">
+                                            <div class="form-group">
+                                                <label class="req" for="sure-name">Nickname</label>
+                                                <input type="text" class="form-control" id="sure-name" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="req" for="subject">Summary</label>
+                                                <input type="text" class="form-control" id="subject" required="required">
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="req" for="comments">Review</label>
+                                                <textarea class="form-control" rows="5" id="comments" required="required"></textarea>
+                                            </div>
+                                            <button type="submit" class="btn-submit">Submit Review</button>
+                                        </form>
+                                    </div>
+                                    <!-- Reviews Field Start -->
+                                </div>
+                                <!-- Reviews End -->
+                            </div>
+                        </div>
+                        <!-- Product Thumbnail Tab Content End -->
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Product Thumbnail Description End -->
+        <!-- Realted Product Start -->
+        <div class="related-product pb-30">
+            <div class="container">
+                <div class="related-box">
+                    <div class="group-title">
+                        <h2>Еще товары этого магазина</h2>
+                    </div>
+                    <!-- Realted Product Activation Start -->                    
+                    <div class="new-upsell-pro owl-carousel" >
+                        <!-- Single Product Start -->
+                        <div class="single-product" th:each="product : ${products}">
+                            <!-- Product Image Start -->
+                            <div class="pro-img">
+                                <a href="product.html">
+                                    <img class="primary-img" th:src="@{../upload/product/{article}/1.jpg(article=${product.getArticle()})}" alt="single-product">
+                                    <img class="secondary-img" th:src="@{../upload/product/{article}/1.jpg(article=${product.getArticle()})}" alt="single-product">
+                                </a>
+                            </div>
+                            <!-- Product Image End -->
+                            <!-- Product Content Start -->
+                            <div class="pro-content">
+
+                                <h4><a th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.getName()}">Products Name Here</a></h4>
+                                <p><span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 2)}">$30.00</span><!--del class="prev-price">$32.00</del--></p>
+                                <div class="pro-actions">
+                                    <div class="actions-secondary" th:if="${person.getRole().equals('ROLE_USER')}">
+                                        <a href="#" data-toggle="tooltip" title="Добавить в список желаний"><i class="fa fa-heart"></i></a>
+                                        <a class="add-cart" th:href="@{/product/{id}/add-to-cart(id=${product.getId()})}" data-toggle="tooltip"
+                                           title="Добавить в корзину" >В корзину</a>
+                                        <a href="#" data-toggle="tooltip" title="Подробнее"><i class="fa fa-signal"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Product Content End -->
+                        </div>
+                        <!-- Single Product End --> 
+                    </div>
+                    <!-- Upsell Product Activation End -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Upsell Product End -->
+    <footer class="off-white-bg">
+        <!-- Footer Top Start -->
+        <div class="footer-top pt-50 pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-4  col-md-7 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Contact us</h3>
+                            <div class="footer-content">
+                                <div class="loc-address">
+                                    <span><i class="fa fa-map-marker"></i>д. 38 Садовая ул., г. Москва, Россия.</span>
+                                    <span><i class="fa fa-envelope-o"></i>Почта : test@example.com</span>
+                                    <span><i class="fa fa-phone"></i>Телефон: + 11 222 3333</span>
+                                </div>
+                                <div class="payment-mth"><a><img class="img" th:src="@{/public/img/footer/1.png}" alt="payment-image"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Информация</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="#">Jobs</a></li>
+                                    <li><a href="#">Delivery Information</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Мой аккаунт</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Личный кабинет</a></li>
+                                    <li><a href="account.html">Список желаний</a></li>
+                                    <li><a href="#">Корзина</a></li>
+                                    <li><a href="account.html">Регистрация</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Магазины</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Все магазины</a></li>
+                                    <li><a href="#">Новые</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Помощь</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">FAQ</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Footer Top End -->
+    </footer>
+</div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script th:src="@{../public/js/vendor/jquery-1.12.4.min.js}"></script>
+    <!-- mobile menu js  -->
+    <script th:src="@{../public/js/jquery.meanmenu.min.js}"></script>
+    <!-- scroll-up js -->
+    <script th:src="@{../public/js/jquery.scrollUp.js}"></script>
+    <!-- owl-carousel js -->
+    <script th:src="@{../public/js/owl.carousel.min.js}"></script>
+    <!-- slick js -->
+    <script th:src="@{../public/js/slick.min.js}"></script>
+    <!-- wow js -->
+    <script th:src="@{../public/js/wow.min.js}"></script>
+    <!-- price slider js -->
+    <script th:src="@{../public/js/jquery-ui.min.js}"></script>
+    <script th:src="@{../public/js/jquery.countdown.min.js}"></script>
+    <!-- nivo slider js -->
+    <script th:src="@{../public/js/jquery.nivo.slider.js}"></script>
+    <!-- fancybox js -->
+    <script th:src="@{../public/js/jquery.fancybox.min.js}"></script>
+    <!-- bootstrap -->
+    <script th:src="@{../public/js/bootstrap.min.js}"></script>
+    <!-- popper -->
+    <script th:src="@{../public/js/popper.js}"></script>
+    <!-- plugins -->
+    <script th:src="@{../public/js/plugins.js}"></script>
+    <!-- main js -->
+    <script th:src="@{../public/js/main.js}"></script>
+</body>
+
+</html>

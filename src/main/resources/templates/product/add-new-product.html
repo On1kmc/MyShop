@@ -1,0 +1,501 @@
+<!doctype html>
+<html class="no-js" lang="en-US">
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Login || Jantrik Bootstrap4 Template for Tools, Equipment Store</title>
+    <meta name="description" content="Default Description">
+    <meta name="keywords" content="E-commerce" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/icon/favicon.png">
+    <!-- Google Font css -->
+    <link href="https://fonts.googleapis.com/css?family=Lily+Script+One" rel="stylesheet">
+
+    <!-- mobile menu css -->
+    <link rel="stylesheet" th:href="@{/public/css/meanmenu.min.css}">
+    <!-- animate css -->
+    <link rel="stylesheet" th:href="@{/public/css/animate.css}">
+    <!-- nivo slider css -->
+    <link rel="stylesheet" th:href="@{/public/css/nivo-slider.css}">
+    <!-- owl carousel css -->
+    <link rel="stylesheet" th:href="@{/public/css/owl.carousel.min.css}">
+    <!-- slick css -->
+    <link rel="stylesheet" th:href="@{/public/css/slick.css}">
+    <!-- price slider css -->
+    <link rel="stylesheet" th:href="@{/public/css/jquery-ui.min.css}">
+    <!-- fontawesome css -->
+    <link rel="stylesheet" th:href="@{/public/css/font-awesome.min.css}">
+    <!-- fancybox css -->
+    <link rel="stylesheet" th:href="@{/public/css/jquery.fancybox.css}">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" th:href="@{/public/css/bootstrap.min.css}">
+    <!-- default css  -->
+    <link rel="stylesheet" th:href="@{/public/css/default.css}">
+    <!-- style css -->
+    <link rel="stylesheet" th:href="@{/public/style.css}">
+    <!-- responsive css -->
+    <link rel="stylesheet" th:href="@{/public/css/responsive.css}">
+
+    <!-- modernizr js -->
+    <script th:src="@{/public/js/vendor/modernizr-2.8.3.min.js}"></script>
+</head>
+
+<body>
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Wrapper Start -->
+<div class="wrapper">
+    <!-- Header Area Start -->
+    <header>
+        <!-- Header Top Start -->
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <!-- Header Top left Start -->
+                    <div class="col-lg-4 col-md-12 d-center">
+                        <div class="header-top-left">
+                            <img th:src="@{/public/img/icon/call.png}" alt="">Call Us : +11 222 3333
+                        </div>
+                    </div>
+                    <!-- Header Top left End -->
+                    <!-- Search Box Start -->
+                    <div class="col-lg-4 col-md-6 ml-auto mr-auto">
+                        <div class="search-box-view">
+                            <form action="#">
+                                <input type="text" class="email" placeholder="Search Your Product" name="product">
+                                <button type="submit" class="submit"></button>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- Search Box End -->
+                    <!-- Header Top Right Start -->
+                    <div class="col-lg-4 col-md-12">
+                        <div class="header-top-right">
+                            <ul class="header-list-menu f-right">
+                                <!-- Language Start -->
+                                <li><a href="#">Language: English <i class="fa fa-angle-down"></i></a>
+                                    <ul class="ht-dropdown">
+                                        <li><a href="#">Spanish</a></li>
+                                        <li><a href="#">Bengali</a></li>
+                                        <li><a href="#">Russian</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Language End -->
+                                <!-- Currency Start -->
+                                <li><a href="#">Currency:  USD <i class="fa fa-angle-down"></i></a>
+                                    <ul class="ht-dropdown">
+                                        <li><a href="#">USD</a></li>
+                                        <li><a href="#">GBP</a></li>
+                                        <li><a href="#">EUR</a></li>
+                                    </ul>
+                                </li>
+                                <!-- Currency End -->
+                            </ul>
+                            <!-- Header-list-menu End -->
+                        </div>
+                    </div>
+                    <!-- Header Top Right End -->
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Top End -->
+        <!-- Header Bottom Start -->
+        <div class="header-bottom header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
+                        <div class="logo">
+                            <a href="index.html"><img th:src="@{/public/img/logo/logo.png}" alt="logo-image"></a>
+                        </div>
+                    </div>
+                    <!-- Primary Vertical-Menu End -->
+                    <!-- Search Box Start -->
+                    <div class="col-xl-6 col-lg-7 d-none d-lg-block">
+                        <div class="middle-menu pull-right">
+                            <nav>
+                                <ul class="middle-menu-list">
+                                    <li><a href="index.html">home<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown home-dropdown">
+                                            <li><a href="index.html">Home Version One</a></li>
+                                            <li><a href="index-2.html">Home Version Two</a></li>
+                                            <li><a href="index-3.html">Home Box Layout</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="about.html">about us</a></li>
+                                    <li><a href="shop.html">shop<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="shop.html">Shop</a>
+                                                <!-- Start Two Step -->
+                                                <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                    <li><a href="shop.html">Product Category Name</a>
+                                                        <!-- Start Three Step -->
+                                                        <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="product.html">product details Page</a></li>
+                                            <li><a href="compare.html">Compare Page</a></li>
+                                            <li><a href="cart.html">Cart Page</a></li>
+                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="blog.html">Blog<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="blog.html">Blog Page</a></li>
+                                            <li><a href="blog-details.html">Blog Details Page</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="#">pages<i class="fa fa-angle-down"></i></a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul class="ht-dropdown dropdown-style-two">
+                                            <li><a href="login.html">Login Page</a></li>
+                                            <li><a href="register.html">Register Page</a></li>
+                                            <li><a href="404.html">404 Page</a></li>
+                                            <li><a href="forgot-password.html">Forgot Password Page</a></li>
+                                            <li><a href="account.html">Account Page</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="contact.html">contact us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Search Box End -->
+                    <!-- Cartt Box Start -->
+                    <div class="col-lg-3 col-sm-7 col-7">
+                        <div class="cart-box text-right">
+                            <ul>
+                                <li><a href="compare.html"><i class="fa fa-cog"></i></a>
+                                    <ul class="ht-dropdown">
+                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="register.html">Register</a></li>
+                                        <li><a href="account.html">Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
+                                    <ul class="ht-dropdown main-cart-box">
+                                        <li>
+                                            <!-- Cart Box Start -->
+                                            <div class="single-cart-box">
+                                                <div class="cart-img">
+                                                    <a href="#"><img th:src="@{/public/img/menu/1.jpg}" alt="cart-image"></a>
+                                                </div>
+                                                <div class="cart-content">
+                                                    <h6><a href="product.html">Products Name</a></h6>
+                                                    <span>1 × $399.00</span>
+                                                </div>
+                                                <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                            </div>
+                                            <!-- Cart Box End -->
+                                            <!-- Cart Box Start -->
+                                            <div class="single-cart-box">
+                                                <div class="cart-img">
+                                                    <a href="#"><img th:src="@{/public/img/menu/2.jpg}" alt="cart-image"></a>
+                                                </div>
+                                                <div class="cart-content">
+                                                    <h6><a href="product.html">Products Name</a></h6>
+                                                    <span>2 × $299.00</span>
+                                                </div>
+                                                <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                            </div>
+                                            <!-- Cart Box End -->
+                                            <!-- Cart Footer Inner Start -->
+                                            <div class="cart-footer fix">
+                                                <h5>total :<span class="f-right">$698.00</span></h5>
+                                                <div class="cart-actions">
+                                                    <a class="checkout" href="checkout.html">Checkout</a>
+                                                </div>
+                                            </div>
+                                            <!-- Cart Footer Inner End -->
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Cartt Box End -->
+                    <div class="col-sm-12 d-lg-none">
+                        <div class="mobile-menu">
+                            <nav>
+                                <ul>
+                                    <li><a href="index.html">home</a>
+                                        <!-- Home Version Dropdown Start -->
+                                        <ul>
+                                            <li><a href="index.html">Home Version One</a></li>
+                                            <li><a href="index-2.html">Home Version Two</a></li>
+                                            <li><a href="index-3.html">Home Box Layout</a></li>
+                                        </ul>
+                                        <!-- Home Version Dropdown End -->
+                                    </li>
+                                    <li><a href="shop.html">shop</a>
+                                        <!-- Mobile Menu Dropdown Start -->
+                                        <ul>
+                                            <li><a href="product.html">Shop</a>
+                                                <ul>
+                                                    <li><a href="shop.html">Product Category Name</a>
+                                                        <!-- Start Three Step -->
+                                                        <ul>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                            <li><a href="shop.html">Product Category Name</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                    <li><a href="shop.html">Product Category Name</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="product.html">product details Page</a></li>
+                                            <li><a href="compare.html">Compare Page</a></li>
+                                            <li><a href="cart.html">Cart Page</a></li>
+                                            <li><a href="checkout.html">Checkout Page</a></li>
+                                            <li><a href="wishlist.html">Wishlist Page</a></li>
+                                        </ul>
+                                        <!-- Mobile Menu Dropdown End -->
+                                    </li>
+                                    <li><a href="blog.html">Blog</a>
+                                        <!-- Mobile Menu Dropdown Start -->
+                                        <ul>
+                                            <li><a href="blog-details.html">Blog Details Page</a></li>
+                                        </ul>
+                                        <!-- Mobile Menu Dropdown End -->
+                                    </li>
+                                    <li><a href="#">pages</a>
+                                        <!-- Mobile Menu Dropdown Start -->
+                                        <ul>
+                                            <li><a href="login.html">login Page</a></li>
+                                            <li><a href="register.html">Register Page</a></li>
+                                            <li><a href="404.html">404 Page</a></li>
+                                        </ul>
+                                        <!-- Mobile Menu Dropdown End -->
+                                    </li>
+                                    <li><a href="about.html">about us</a></li>
+                                    <li><a href="contact.html">contact us</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <!-- Mobile Menu  End -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Header Bottom End -->
+    </header>
+    <!-- Header Area End -->
+    <!-- Breadcrumb Start -->
+        <div class="breadcrumb-area ptb-60 ptb-sm-30">
+            <div class="container">
+                <div class="breadcrumb">
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="register.html">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Breadcrumb End -->
+        <!-- Register Account Start -->
+        <div class="register-account pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="register-title">
+                            <h3 class="mb-10">Добавление нового товара</h3>
+                        </div>
+                    </div>
+                </div>
+                <!-- Row End -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <form class="form-horizontal" th:action="@{/product/new}" th:method="POST" th:object="${product}" enctype="multipart/form-data">
+                            <fieldset>
+                                <legend>Укажите необходимую информацию</legend>
+                                <div class="form-group">
+                                    <label class="control-label" for="article"><span class="require">*</span>Артикул товара</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" th:field="*{article}" class="form-control" id="article" placeholder="Article">
+                                    </div>
+                                    <div style="color:red" th:if="${#fields.hasErrors('article')}" th:errors="*{article}">Error</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="f-name"><span class="require">*</span>Название товара:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" th:field="*{name}" class="form-control" id="f-name" placeholder="Название">
+                                    </div>
+                                    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="desc"><span class="require">*</span>Описание:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" th:field="*{description}" class="form-control" id="desc" placeholder="Описание товара">
+                                    </div>
+                                    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Error</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="price"><span class="require"></span>Цена товара</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" th:field="*{price}" class="form-control" id="price" placeholder="255.00">
+                                    </div>
+                                    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label" for="file"><span class="require">*</span>Фотографии</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" class="form-control" name="file" multiple id="file">
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="buttons newsletter-input">
+                                <div class="pull-right">I have read and agree to the <a href="#" class="agree"><b>Privacy Policy</b></a>
+                                    <!-- <input type="checkbox" name="agree" value="1"> &nbsp; -->
+                                    <input type="submit" value="Подвердить" class="newsletter-btn">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Register Account End -->
+    <footer class="off-white-bg">
+        <!-- Footer Top Start -->
+        <div class="footer-top pt-50 pb-60">
+            <div class="container">
+                <div class="row">
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-4  col-md-7 col-sm-6">
+                        <div class="single-footer">
+                            <h3>Contact us</h3>
+                            <div class="footer-content">
+                                <div class="loc-address">
+                                    <span><i class="fa fa-map-marker"></i>д. 38 Садовая ул., г. Москва, Россия.</span>
+                                    <span><i class="fa fa-envelope-o"></i>Почта : test@example.com</span>
+                                    <span><i class="fa fa-phone"></i>Телефон: + 11 222 3333</span>
+                                </div>
+                                <div class="payment-mth"><a><img class="img" th:src="@{/public/img/footer/1.png}" alt="payment-image"></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-5 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Информация</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">Site Map</a></li>
+                                    <li><a href="#">Specials</a></li>
+                                    <li><a href="#">Jobs</a></li>
+                                    <li><a href="#">Delivery Information</a></li>
+                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2  col-md-4 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Мой аккаунт</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Личный кабинет</a></li>
+                                    <li><a href="account.html">Список желаний</a></li>
+                                    <li><a href="#">Корзина</a></li>
+                                    <li><a href="account.html">Регистрация</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Магазины</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="account.html">Все магазины</a></li>
+                                    <li><a href="#">Новые</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                    <!-- Single Footer Start -->
+                    <div class="col-lg-2 col-md-4 col-sm-6 footer-full">
+                        <div class="single-footer">
+                            <h3 class="footer-title">Помощь</h3>
+                            <div class="footer-content">
+                                <ul class="footer-list">
+                                    <li><a href="#">FAQ</a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Single Footer Start -->
+                </div>
+                <!-- Row End -->
+            </div>
+            <!-- Container End -->
+        </div>
+        <!-- Footer Top End -->
+    </footer>
+        <!-- Footer End -->
+    </div>
+    <!-- Wrapper End -->
+    <!-- jquery 3.12.4 -->
+    <script src="js/vendor/jquery-1.12.4.min.js"></script>
+    <!-- mobile menu js  -->
+    <script src="js/jquery.meanmenu.min.js"></script>
+    <!-- scroll-up js -->
+    <script src="js/jquery.scrollUp.js"></script>
+    <!-- owl-carousel js -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- slick js -->
+    <script src="js/slick.min.js"></script>
+    <!-- wow js -->
+    <script src="js/wow.min.js"></script>
+    <!-- price slider js -->
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <!-- nivo slider js -->
+    <script src="js/jquery.nivo.slider.js"></script>
+    <!-- fancybox js -->
+    <script src="js/jquery.fancybox.min.js"></script>
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- popper -->
+    <script src="js/popper.js"></script>
+    <!-- plugins -->
+    <script src="js/plugins.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
