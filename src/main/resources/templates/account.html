@@ -218,7 +218,8 @@
                             <ul class="nav flex-column dashboard-list" role="tablist">
                                 <li><a class="active" data-toggle="tab" href="#orders">Мои заказы</a></li>
                                 <li><a data-toggle="tab" href="#cart">Корзина</a></li>
-                                <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>>
+                                <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>
+                                <li><a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a></li>
                             </ul>
                         </div>
                         <div class="col-lg-10">

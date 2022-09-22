@@ -3,6 +3,7 @@ package com.ivanov.MyShop.controllers;
 import com.ivanov.MyShop.models.Authority;
 import com.ivanov.MyShop.models.Person;
 import com.ivanov.MyShop.security.PersonDetails;
+import com.ivanov.MyShop.services.PasswordService;
 import com.ivanov.MyShop.services.PeopleService;
 import com.ivanov.MyShop.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +25,13 @@ public class AccountController {
 
     private final PeopleService peopleService;
 
+    private final PasswordService passwordService;
+
     @Autowired
-    public AccountController(RegistrationService registrationService, PeopleService peopleService) {
+    public AccountController(RegistrationService registrationService, PeopleService peopleService, PasswordService passwordService) {
         this.registrationService = registrationService;
         this.peopleService = peopleService;
+        this.passwordService = passwordService;
     }
 
 
@@ -55,10 +59,10 @@ public class AccountController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
         Authority authority = personDetails.getPerson();
-        if (authority.getId() != id || authority.getRole().equals("ROLE_MARKET")) return "404";
+        if (authority.getId() != id) return "404";
 
         if (!newPass.equals(confirmPass)) bindingResult.rejectValue("password", "", "Новый пароль не подтвержден");
-        if (!peopleService.equalsPass(person.getPassword(), authority.getPassword())) {
+        if (!passwordService.equalsPass(person.getPassword(), authority.getPassword())) {
             bindingResult.rejectValue("password", "", "Неправильный пароль");
         }
         if (bindingResult.hasErrors()) {

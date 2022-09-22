@@ -1,14 +1,14 @@
 package com.ivanov.MyShop.services;
 
 import com.ivanov.MyShop.models.Market;
-import com.ivanov.MyShop.models.Product;
 import com.ivanov.MyShop.repo.MarketRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
-import javax.swing.text.html.Option;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -23,10 +23,13 @@ public class MarketService {
 
     private final MarketRepo marketRepo;
 
+    private final PasswordEncoder passwordEncoder;
+
 
     @Autowired
-    public MarketService(MarketRepo marketRepo) {
+    public MarketService(MarketRepo marketRepo, PasswordEncoder passwordEncoder) {
         this.marketRepo = marketRepo;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<Market> findAll() {
@@ -47,18 +50,42 @@ public class MarketService {
         return toViewList;
     }
 
-    public void saveFile(MultipartFile file, Market market) {
+    public void savePhoto(MultipartFile file, int id) {
         try {
-            Files.createDirectory(Path.of("upload/market/" + market.getId()));
+            File directory = Path.of("upload/market/" + id).toFile();
+            if (!directory.exists()) Files.createDirectory(directory.toPath());
             BufferedImage bufferedImageInput = ImageIO.read(file.getInputStream());
             BufferedImage bufferedImageOutput = new BufferedImage(570, 255, bufferedImageInput.getType());
             Graphics2D g2d = bufferedImageOutput.createGraphics();
             g2d.drawImage(bufferedImageInput, 0, 0, 570, 255, null);
             g2d.dispose();
-            File file1 = new File("upload/market/" + market.getId() + "/1.jpg");
-            file1.createNewFile();
+            File file1 = new File("upload/market/" + id + "/1.jpg");
+            if (!file1.exists()) file1.createNewFile();
             ImageIO.write(bufferedImageOutput, "jpg", file1);
         } catch (IOException ignored) {
         }
+    }
+
+    public void saveBanner(MultipartFile file, int id) {
+        try {
+            File directory = Path.of("upload/market/" + id).toFile();
+            if (!directory.exists()) Files.createDirectory(directory.toPath());
+            BufferedImage bufferedImageInput = ImageIO.read(file.getInputStream());
+            BufferedImage bufferedImageOutput = new BufferedImage(1920, 560, bufferedImageInput.getType());
+            Graphics2D g2d = bufferedImageOutput.createGraphics();
+            g2d.drawImage(bufferedImageInput, 0, 0, 1920, 560, null);
+            g2d.dispose();
+            File file1 = new File("upload/market/" + id + "/banner.jpg");
+            if (!file1.exists()) file1.createNewFile();
+            ImageIO.write(bufferedImageOutput, "jpg", file1);
+        } catch (IOException ignored) {
+        }
+    }
+
+    @Transactional
+    public void update(Market market, Market marketForUpdate) {
+        marketForUpdate.setName(market.getName());
+        marketForUpdate.setPassword(passwordEncoder.encode(market.getPassword()));
+        marketRepo.save(marketForUpdate);
     }
 }

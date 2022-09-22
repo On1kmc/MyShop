@@ -85,7 +85,7 @@ public class AuthController {
         if (bindingResult.hasErrors()) return "/auth/register-market";
         market.setRole("ROLE_MARKET");
         registrationService.register(market);
-        marketService.saveFile(file, market);
+        marketService.savePhoto(file, market.getId());
         return "redirect:/auth/login";
     }
 

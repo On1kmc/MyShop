@@ -5,6 +5,7 @@ import com.ivanov.MyShop.models.Person;
 import com.ivanov.MyShop.repo.PersonRepo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class PeopleService {
@@ -19,6 +20,7 @@ public class PeopleService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    @Transactional
     public void update(Person person, Person personForUpdate) {
         personForUpdate.setName(person.getName());
         personForUpdate.setLastName(person.getLastName());
@@ -28,7 +30,5 @@ public class PeopleService {
         personRepo.save(personForUpdate);
     }
 
-    public boolean equalsPass(String passForCheck, String currentPass) {
-        return passwordEncoder.matches(passForCheck, currentPass);
-    }
+
 }

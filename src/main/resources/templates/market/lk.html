@@ -81,8 +81,9 @@
                                     <ul class="ht-dropdown">
                                         <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
-                                        <li><form id = "logout" th:action="@{/logout}" method = "post"/></li>
-                                        <li><a onclick = 'document.getElementById("logout").submit();' href="#">Выйти</a></li>
+                                        <li><form id = "logout" th:action="@{/logout}" method = "post">
+                                            <a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a>
+                                        </form></li>
                                     </ul>
                                 </li>
                                 <!-- User End -->
@@ -181,8 +182,8 @@
                         <ul class="nav flex-column dashboard-list" role="tablist">
                             <li><a class="active" data-toggle="tab" href="#orders">Управление товарами</a></li>
                             <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>
-                            <li><form id = "logout2" th:action="@{/logout}" method = "post"/></li>
-                            <li><a onclick = 'document.getElementById("logout2").submit();' href="#">Выйти</a></li>
+                            <li><a data-toggle="tab" href="#banner-edit">Редактировать изображения</a></li>
+                            <li><a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-10">
@@ -245,10 +246,58 @@
                                     </table>
                                 </div>
                             </div> -->
+                            <div id="banner-edit" class="tab-pane fade">
+                                <h3>Редактировать баннеры</h3>
+                                <form id="banners" th:action="@{/market/{id}/lk(id=${person.getId()})}" th:method="PUT" enctype="multipart/form-data">
+                                <div class="register-form login-form clearfix">
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <label class="control-label" for="photo">Текущее фото</label>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div class="cart-img">
+                                                    <a data-fancybox="images" th:href="@{../../upload/market/{id}/1.jpg(id=${person.getId()})}"><img th:src="@{../../upload/market/{id}/1.jpg(id=${person.getId()})}" alt=""/></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <a>Заменить</a>
+                                                <div>
+                                                    <input type="file" name="photo" id="photo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <br/>
+                                <br/>
+                                <div class="register-form login-form clearfix">
+                                        <div class="form-group">
+                                            <div class="col-sm-10">
+                                                <label class="control-label" for="banner">Текущий баннер</label>
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <div class="cart-img">
+                                                    <a data-fancybox="images" th:href="@{../../upload/market/{id}/banner.jpg(id=${person.getId()})}"><img th:src="@{../../upload/market/{id}/banner.jpg(id=${person.getId()})}" alt=""/></a>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-sm-10">
+                                                <a>Заменить</a>
+                                                <div>
+                                                    <input type="file" name="banner" id="banner">
+                                                </div>
+                                                <div class="cart-content">
+                                                    <button class="return-customer-btn f-right" type="submit" th:formaction="@{/market/{id}/lk(id=${person.getId()})}" th:method="PUT">Принять</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                             <div id="account-details" class="tab-pane fade">
                                 <h3>Редактировать аккаунт</h3>
                                 <div class="register-form login-form clearfix">
-                                    <form id="edit" th:action="@{/market/{id}/(id=${person.getId()})}" th:method="PATCH" th:object="${marketForUpdate}">
+                                    <form id="edit" th:action="@{/market/{id}/lk(id=${person.getId()})}" th:method="PATCH" th:object="${marketForUpdate}">
                                         <input type="hidden" th:field="*{email}" class="form-control" id="email">
                                         <input type="hidden" th:field="*{role}" class="form-control" id="role">
                                         <div class="form-group row">
@@ -279,7 +328,7 @@
                                             </div>
                                         </div>
                                         <div class="register-box mt-40">
-                                            <button class="return-customer-btn f-right" type="submit" th:formaction="@{/account/{id}/(id=${person.getId()})}" th:method="PATCH">Принять</button>
+                                            <button class="return-customer-btn f-right" type="submit" th:formaction="@{/market/{id}/lk(id=${person.getId()})}" th:method="PATCH">Принять</button>
                                         </div>
                                     </form>
                                 </div>

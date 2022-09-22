@@ -80,9 +80,11 @@
                                     <li><a th:href="@{/market/{id}(id=${person.getId()})}" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
                                     <ul class="ht-dropdown">
                                         <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
+                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/(id=${person.getId()})}">Страница магазина</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
-                                        <li><form id = "logout" th:action="@{/logout}" method = "post"/></li>
-                                    <li><a onclick = 'document.getElementById("logout").submit();' href="#">Выйти</a></li>
+                                        <li><form id = "logout" th:action="@{/logout}" method = "post">
+                                            <a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" href="#">Выйти</a>
+                                        </form></li>
                                         </ul>
                                     </li>
                                     <!-- User End -->
