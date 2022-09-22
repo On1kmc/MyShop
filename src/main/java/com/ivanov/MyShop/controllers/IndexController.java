@@ -22,8 +22,6 @@ public class IndexController {
 
     private final MarketService marketService;
 
-
-
     @Autowired
     public IndexController(ProductService productService, MarketService marketService) {
         this.productService = productService;

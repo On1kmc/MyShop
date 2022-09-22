@@ -1,5 +1,7 @@
 package com.ivanov.MyShop.controllers;
 
+import com.ivanov.MyShop.models.Authority;
+import com.ivanov.MyShop.models.Market;
 import com.ivanov.MyShop.security.PersonDetails;
 import com.ivanov.MyShop.services.MarketService;
 import org.springframework.security.core.Authentication;
@@ -25,9 +27,22 @@ public class MarketController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
         model.addAttribute("person", personDetails.getPerson());
-
         model.addAttribute("products", marketService.findById(id).getProducts());
         return "market/market-page";
+    }
+
+    @GetMapping("/{id}/lk")
+    public String lk(Model model, @PathVariable("id") int id) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
+        Authority authority = personDetails.getPerson();
+
+        if (authority.getId() != id || !authority.getRole().equals("ROLE_MARKET")) return "404";
+
+        Market market = (Market) authority;
+        model.addAttribute("person", authority);
+        model.addAttribute("marketForUpdate", market);
+        return "market/lk";
     }
 
 }

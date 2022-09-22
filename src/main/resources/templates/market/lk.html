@@ -81,9 +81,8 @@
                                     <ul class="ht-dropdown">
                                         <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
-                                        <li><form id = "logout" th:action="@{/logout}" method = "post">
-                                        <a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a>
-                                        </form></li>
+                                        <li><form id = "logout" th:action="@{/logout}" method = "post"/></li>
+                                        <li><a onclick = 'document.getElementById("logout").submit();' href="#">Выйти</a></li>
                                     </ul>
                                 </li>
                                 <!-- User End -->
@@ -151,42 +150,6 @@
                         </div>
                     </div>
                     <!-- Search Box End -->
-                    <!-- Cartt Box Start -->
-                    <div class="col-lg-3 col-sm-7 col-7">
-                        <div class="cart-box text-right">
-                            <ul>
-                                <li><a th:href="@{/cart}" th:if="${person.getRole().equals('ROLE_USER')}"><i class="fa fa-shopping-basket"></i><span class="cart-counter" th:text="${person.getCart().getProducts().size()}">2</span></a>
-                                    <ul class="ht-dropdown main-cart-box" th:if="${person.getRole().equals('ROLE_USER')}">
-                                        <li>
-                                            <!-- Cart Box Start -->
-                                            <div class="single-cart-box" th:each="product1 : ${person.getCart().getProducts()}">
-                                                <div class="cart-img">
-                                                    <a href="#"><img th:src="@{upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
-                                                </div>
-                                                <div class="cart-content">
-                                                    <h6><a href="product.html" th:text="${product1.getName()}">Products Name</a></h6>
-                                                    <span th:text = "'1 × ' + ${product1.getPrice()}">1 × $399.00</span>
-                                                </div>
-                                                <a class="del-icone"><i class="fa fa-window-close-o"></i></a>
-
-                                            </div>
-                                            <!-- Cart Box End -->
-
-                                            <!-- Cart Footer Inner Start -->
-                                            <div class="cart-footer fix">
-                                                <h5>total :<span class="f-right">Сумма заказа</span></h5>
-                                                <div class="cart-actions">
-                                                    <a class="checkout" href="checkout.html">Оформить заказ</a>
-                                                </div>
-                                            </div>
-                                            <!-- Cart Footer Inner End -->
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <!-- Cartt Box End -->
                 </div>
                 <!-- Row End -->
             </div>
@@ -195,151 +158,130 @@
         <!-- Header Bottom End -->
     </header>
     <!-- Header Area End -->
-        <!-- Breadcrumb Start -->
+    <!-- Breadcrumb Start -->
     <div class="breadcrumb-area ptb-60 ptb-sm-30">
         <div class="container">
             <div class="breadcrumb">
                 <ul>
                     <li><a href="/">Главная</a></li>
-                    <li class="active"><a href="#">Личный кабинет</a></li>
+                    <li class="active"><a href="#">Управление</a></li>
                 </ul>
             </div>
         </div>
         <!-- Container End -->
     </div>
-        <!-- Breadcrumb End -->
-        <!-- My Account Page Start Here -->
-        <div class="my-account white-bg pb-60">
-            <div class="container">
-                <div class="account-dashboard">
-                    <div class="row">
-                        <div class="col-lg-2">
-                            <!-- Nav tabs -->
-                            <ul class="nav flex-column dashboard-list" role="tablist">
-                                <li><a class="active" data-toggle="tab" href="#orders">Мои заказы</a></li>
-                                <li><a data-toggle="tab" href="#cart">Корзина</a></li>
-                                <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>>
-                            </ul>
-                        </div>
-                        <div class="col-lg-10">
-                            <!-- Tab panes -->
-                            <div class="tab-content dashboard-content mt-all-40">
-                                <div id="orders" class="tab-pane fade">
-                                    <h3>Orders</h3>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Order</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
-                                                    <th>Actions</th>	 	 	 	
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>
-                                                        dsfsdf
-                                                    </td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$25.00 for 1 item </td>
-                                                    <td><a class="view" href="cart.html">view</a></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+    <!-- Breadcrumb End -->
+    <!-- My Account Page Start Here -->
+    <div class="my-account white-bg pb-60">
+        <div class="container">
+            <div class="account-dashboard">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <!-- Nav tabs -->
+                        <ul class="nav flex-column dashboard-list" role="tablist">
+                            <li><a class="active" data-toggle="tab" href="#orders">Управление товарами</a></li>
+                            <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>
+                            <li><form id = "logout2" th:action="@{/logout}" method = "post"/></li>
+                            <li><a onclick = 'document.getElementById("logout2").submit();' href="#">Выйти</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-10">
+                        <!-- Tab panes -->
+                        <div class="tab-content dashboard-content mt-all-40">
+                            <div id="orders" class="tab-pane fade">
+                                <h3>Ваши товары</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th>Order</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Total</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                dsfsdf
+                                            </td>
+                                            <td>May 10, 2018</td>
+                                            <td>Processing</td>
+                                            <td>$25.00 for 1 item </td>
+                                            <td><a class="view" href="cart.html">view</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-
-                                <div id="cart" class="tab-pane fade">
-                                    <h3>Ваша корзина</h3>
-                                    <div class="table-responsive">
-                                        <table class="table">
-                                            <thead>
-                                            <tr>
-                                                <th></th>
-                                                <th>Наименование</th>
-                                                <th>Цена</th>
-                                                <th>Количество</th>
-                                                <th>Сумма</th>
-                                            </tr>
-                                            </thead>
-                                            <tbody>
-                                            <tr th:each="product1 : ${person.getCart().getProducts()}">
-                                                <td>
-                                                    <div class="cart-img">
+                            </div>
+                            <!--
+                            <div id="cart" class="tab-pane fade">
+                                <h3>Ваша корзина</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th></th>
+                                            <th>Наименование</th>
+                                            <th>Цена</th>
+                                            <th>Количество</th>
+                                            <th>Сумма</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr th:each="product1 : ${person.getCart().getProducts()}">
+                                            <td>
+                                                <div class="cart-img">
                                                     <a href="#"><img th:src="@{../upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
-                                                    </div>
-                                                </td>
-                                                <td th:text="${product1.getName()}">Наименование товара</td>
-                                                <td th:text="${product1.getPrice()}">Цена товара</td>
-                                                <td>1 шт.</td>
-                                                <td><a class="view" th:href="@{/product/{id}(id=${product1.getId()})}">Посмотреть</a></td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
+                                                </div>
+                                            </td>
+                                            <td th:text="${product1.getName()}">Наименование товара</td>
+                                            <td th:text="${product1.getPrice()}">Цена товара</td>
+                                            <td>1 шт.</td>
+                                            <td><a class="view" th:href="@{/product/{id}(id=${product1.getId()})}">Посмотреть</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                                <div id="account-details" class="tab-pane fade">
-                                    <h3>Редактировать аккаунт</h3>
-                                    <div class="register-form login-form clearfix">
-                                        <form id="edit" th:action="@{/account/{id}/(id=${person.getId()})}" th:method="PATCH" th:object="${personForUpdate}">
-                                            <input type="hidden" th:field="*{email}" class="form-control" id="email">
-                                            <input type="hidden" th:field="*{role}" class="form-control" id="role">
-                                            <div class="form-group row">
-                                                <label for="f-name" class="col-lg-3 col-md-4 col-form-label">Имя</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="text" th:field="*{name}" class="form-control" id="f-name">
-                                                </div>
-                                                <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+                            </div> -->
+                            <div id="account-details" class="tab-pane fade">
+                                <h3>Редактировать аккаунт</h3>
+                                <div class="register-form login-form clearfix">
+                                    <form id="edit" th:action="@{/market/{id}/(id=${person.getId()})}" th:method="PATCH" th:object="${marketForUpdate}">
+                                        <input type="hidden" th:field="*{email}" class="form-control" id="email">
+                                        <input type="hidden" th:field="*{role}" class="form-control" id="role">
+                                        <div class="form-group row">
+                                            <label for="f-name" class="col-lg-3 col-md-4 col-form-label">Название</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                <input type="text" th:field="*{name}" class="form-control" id="f-name">
+                                            </div>
+                                            <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
 
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="inputpassword" class="col-lg-3 col-md-4 col-form-label">Текущий пароль</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                <input type="password" th:field="*{password}" class="form-control" id="inputpassword">
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="l-name" class="col-lg-3 col-md-4 col-form-label">Фамилия</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="text" th:field="*{lastName}" class="form-control" id="l-name">
-                                                </div>
-                                                <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Error</div>
+                                            <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="newpassword" class="col-lg-3 col-md-4 col-form-label">Новый пароль</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                <input type="password" name="newpassword" class="form-control" id="newpassword">
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="patronymic" class="col-lg-3 col-md-4 col-form-label">Отчество</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="text" th:field="*{patronymic}" class="form-control" id="patronymic">
-                                                </div>
-                                                <div style="color:red" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Error</div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label for="v-password" class="col-lg-3 col-md-4 col-form-label">Подтвердите пароль</label>
+                                            <div class="col-lg-6 col-md-8">
+                                                <input type="password" name="v-password" class="form-control" id="v-password">
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="address" class="col-lg-3 col-md-4 col-form-label">Адрес</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="text" th:field="*{address}" class="form-control" id="address">
-                                                </div>
-                                                <div style="color:red" th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Error</div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="inputpassword" class="col-lg-3 col-md-4 col-form-label">Текущий пароль</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="password" th:field="*{password}" class="form-control" id="inputpassword">
-                                                </div>
-                                                <div style="color:red" th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="newpassword" class="col-lg-3 col-md-4 col-form-label">Новый пароль</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="password" name="newpassword" class="form-control" id="newpassword">
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="v-password" class="col-lg-3 col-md-4 col-form-label">Подтвердите пароль</label>
-                                                <div class="col-lg-6 col-md-8">
-                                                    <input type="password" name="v-password" class="form-control" id="v-password">
-                                                </div>
-                                            </div>
-                                            <div class="register-box mt-40">
-                                                <button class="return-customer-btn f-right" type="submit" th:formaction="@{/account/{id}/(id=${person.getId()})}" th:method="PATCH">Принять</button>
-                                            </div>
-                                        </form>
-                                    </div>
+                                        </div>
+                                        <div class="register-box mt-40">
+                                            <button class="return-customer-btn f-right" type="submit" th:formaction="@{/account/{id}/(id=${person.getId()})}" th:method="PATCH">Принять</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -347,7 +289,8 @@
                 </div>
             </div>
         </div>
-        <!-- My Account Page End Here -->
+    </div>
+    <!-- My Account Page End Here -->
     <footer class="off-white-bg">
         <!-- Footer Top Start -->
         <div class="footer-top pt-50 pb-60">
@@ -433,10 +376,10 @@
         </div>
         <!-- Footer Top End -->
     </footer>
-        <!-- Footer End -->
-    </div>
-    <!-- Wrapper End -->
-    <!-- jquery 3.12.4 -->
+    <!-- Footer End -->
+</div>
+<!-- Wrapper End -->
+<!-- jquery 3.12.4 -->
 <script th:src="@{/public/js/vendor/jquery-1.12.4.min.js}"></script>
 <!-- mobile menu js  -->
 <script th:src="@{/public/js/jquery.meanmenu.min.js}"></script>

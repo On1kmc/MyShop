@@ -41,7 +41,7 @@ public class AccountController {
         Person person = (Person) authority;
 
         model.addAttribute("personForUpdate", person);
-        model.addAttribute("person", person);
+        model.addAttribute("person", authority);
         return "account";
     }
 

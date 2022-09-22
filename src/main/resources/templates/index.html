@@ -77,8 +77,10 @@
                             <div class="header-top-right">
                                 <ul class="header-list-menu f-right">
                                     <!-- User Start -->
-                                    <li><a href="#" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
+                                    <li><a th:href="@{/market/{id}(id=${person.getId()})}" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
                                     <ul class="ht-dropdown">
+                                        <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
+                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
                                         <li><form id = "logout" th:action="@{/logout}" method = "post"/></li>
                                     <li><a onclick = 'document.getElementById("logout").submit();' href="#">Выйти</a></li>
                                         </ul>
