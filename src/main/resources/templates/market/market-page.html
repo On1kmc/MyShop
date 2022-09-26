@@ -157,7 +157,7 @@
                                                 <!-- Cart Box Start -->
                                                 <div class="single-cart-box" th:each="product1 : ${person.getCart().getProducts()}">
                                                     <div class="cart-img">
-                                                        <a href="#"><img th:src="@{upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
+                                                        <a href="#"><img th:src="@{../upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="product.html" th:text="${product1.getName()}">Products Name</a></h6>
@@ -210,8 +210,8 @@
             <div class="slider-wrapper theme-default  nivo2">
                 <!-- Slider Background  Image Start-->
                 <div id="slider" class="nivoSlider">
-                    <a href="shop.html"><img th:src="@{../upload/market/{id}/banner.jpg(id=${person.getId()})}" data-thumb="public/img/slider/3.jpg" alt="" title="#slider-1-caption1"/></a>
-                    <a href="shop.html"><img th:src="@{../upload/market/{id}/banner.jpg(id=${person.getId()})}" data-thumb="public/img/slider/3.jpg" alt="" title="#slider-1-caption2"/></a>
+                    <a href="shop.html"><img th:src="@{../upload/market/{id}/banner.jpg(id=${market.getId()})}" data-thumb="public/img/slider/3.jpg" alt="" title="#slider-1-caption1"/></a>
+                    <a href="shop.html"><img th:src="@{../upload/market/{id}/banner.jpg(id=${market.getId()})}" data-thumb="public/img/slider/3.jpg" alt="" title="#slider-1-caption2"/></a>
                 </div>
                 <!-- Slider Background  Image Start-->
                 <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">

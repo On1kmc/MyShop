@@ -20,9 +20,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class ProductService {
@@ -31,11 +30,14 @@ public class ProductService {
 
     private final CartRepo cartRepo;
 
+    private final PersonRepo personRepo;
 
 
-    public ProductService(ProductRepo productRepo, CartRepo cartRepo) {
+
+    public ProductService(ProductRepo productRepo, CartRepo cartRepo, PersonRepo personRepo) {
         this.productRepo = productRepo;
         this.cartRepo = cartRepo;
+        this.personRepo = personRepo;
     }
 
     public List<Product> findAllProducts() {
@@ -99,14 +101,15 @@ public class ProductService {
 
     @Transactional
     public void addToCart(Person person, int productId) {
-        Cart cart = person.getCart();
-        Product product = productRepo.findById(productId).get();
-        Hibernate.initialize(cart.getProducts());
+        Cart cart = cartRepo.findByPersonId(person.getId());
+        Product product = productRepo.findById(productId).orElse(null);
         List<Product> list = cart.getProducts();
-        list.add(product);
-        cart.setProducts(list);
-        person.setCart(cart);
-        cartRepo.save(cart);
+        if (!list.contains(product)) {
+            list.add(product);
+            cart.setProducts(list);
+            person.setCart(cart);
+            cartRepo.save(cart);
+        }
     }
 
 

@@ -80,7 +80,7 @@
                                     <li><a th:href="@{/market/{id}(id=${person.getId()})}" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
                                     <ul class="ht-dropdown">
                                         <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
-                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/(id=${person.getId()})}">Страница магазина</a></li>
+                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}(id=${person.getId()})}">Страница магазина</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
                                         <li><form id = "logout" th:action="@{/logout}" method = "post">
                                             <a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" href="#">Выйти</a>
@@ -256,7 +256,7 @@
                         <div class="single-product">
                             <!-- Product Image Start -->
                             <div class="pro-img">
-                                <a href="product.html">
+                                <a th:href="@{/product/{id}(id=${product.getId()})}">
                                     <img class="primary-img" th:src="@{upload/product/{article}/1.jpg(article=${product.getArticle()})}" alt="single-product">
                                     <img class="secondary-img" th:src="@{upload/product/{article}/1.jpg(article=${product.getArticle()})}" alt="single-product">
                                 </a>
@@ -266,7 +266,7 @@
                             <div class="pro-content">
 
                                 <h4><a th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.getName()}">Products Name Here</a></h4>
-                                <p><span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 2)}">$30.00</span><!--del class="prev-price">$32.00</del--></p>
+                                <p><span class="price" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 2)} + ' RUB'">$30.00</span><!--del class="prev-price">$32.00</del--></p>
                                 <div class="pro-actions">
                                     <div class="actions-secondary" th:if="${person.getRole().equals('ROLE_USER')}">
                                         <a href="#" data-toggle="tooltip" title="Добавить в список желаний"><i class="fa fa-heart"></i></a>

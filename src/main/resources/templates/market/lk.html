@@ -40,7 +40,7 @@
     <link rel="stylesheet" th:href="@{/public/css/responsive.css}">
 
     <!-- modernizr js -->
-    <script th:src="@{../public/js/vendor/modernizr-2.8.3.min.js}"></script>
+    <script th:src="@{/public/js/vendor/modernizr-2.8.3.min.js}"></script>
 </head>
 
 <body>
@@ -180,7 +180,7 @@
                     <div class="col-lg-2">
                         <!-- Nav tabs -->
                         <ul class="nav flex-column dashboard-list" role="tablist">
-                            <li><a class="active" data-toggle="tab" href="#orders">Управление товарами</a></li>
+                            <li><a class="active" data-toggle="tab" href="#products">Управление товарами</a></li>
                             <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>
                             <li><a data-toggle="tab" href="#banner-edit">Редактировать изображения</a></li>
                             <li><a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a></li>
@@ -189,28 +189,28 @@
                     <div class="col-lg-10">
                         <!-- Tab panes -->
                         <div class="tab-content dashboard-content mt-all-40">
-                            <div id="orders" class="tab-pane fade">
+                            <div id="products" class="tab-pane fade">
                                 <h3>Ваши товары</h3>
-                                <div class="table-responsive">
+                                <div class="table-content table-responsive mb-50">
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>Order</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>Total</th>
-                                            <th>Actions</th>
+                                            <th class="product-thumbnail">Фото</th>
+                                            <th class="product-price">Артикул</th>
+                                            <th class="product-subtotal">Название</th>
+                                            <th class="product-price">Цена</th>
+                                            <th class="product-remove">Удалить</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td>
-                                                dsfsdf
+                                        <tr th:each="product : ${person.getProducts()}">
+                                            <td class="product-thumbnail">
+                                                <a th:href="@{/product/{id}(id=${product.getId()})}"><img th:src="@{../../upload/product/{article}/1.jpg(article=${product.getArticle()})}" alt="cart-image" /></a>
                                             </td>
-                                            <td>May 10, 2018</td>
-                                            <td>Processing</td>
-                                            <td>$25.00 for 1 item </td>
-                                            <td><a class="view" href="cart.html">view</a></td>
+                                            <td class="product-price"><span class="amount" th:text="${product.getArticle()}">Article Here</span></td>
+                                            <td class="product-name"><a th:href="@{/product/{id}(id=${product.getId()})}" th:text="${product.getName()}">Products Name Here</a></td>
+                                            <td class="product-price"><span class="amount" th:text="${#numbers.formatDecimal(product.getPrice(), 0, 2)}">Price Here</span></td>
+                                            <td><a class="view" href="#">Удалить</a></td>
                                         </tr>
                                         </tbody>
                                     </table>

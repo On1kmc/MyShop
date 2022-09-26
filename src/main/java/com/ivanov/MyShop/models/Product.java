@@ -40,9 +40,9 @@ public class Product {
     @ManyToMany(mappedBy = "products")
     private List<Cart> carts;
 
+    @ManyToMany(mappedBy = "orderProducts")
+    private List<Order> orders;
 
-    @Transient
-    private List<File> files;
 
     public int getId() {
         return id;

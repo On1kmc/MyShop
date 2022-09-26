@@ -70,15 +70,19 @@ public class AuthController {
     @PostMapping("/registration-market")
     public String confirmRegMarket(@ModelAttribute("market") @Valid Market market,
                                    BindingResult bindingResult, @RequestParam("pass") String password,
-                                   @RequestParam("file") MultipartFile file) {
+                                   @RequestParam("file") MultipartFile file,
+                                   @RequestParam("banner") MultipartFile banner) {
+
         if (!market.getPassword().equals(password)) {
             bindingResult.rejectValue("password", "","Пароли не совпадают!");
-            return "/auth/register-market";
         }
 
         if (file.isEmpty()) {
             bindingResult.rejectValue("name", "", "Загрузите фото");
-            return "/auth/register-market";
+        }
+
+        if (banner.isEmpty()) {
+            bindingResult.rejectValue("name", "", "Загрузите баннер");
         }
 
         marketValidator.validate(market, bindingResult);
@@ -86,6 +90,7 @@ public class AuthController {
         market.setRole("ROLE_MARKET");
         registrationService.register(market);
         marketService.savePhoto(file, market.getId());
+        marketService.saveBanner(banner, market.getId());
         return "redirect:/auth/login";
     }
 

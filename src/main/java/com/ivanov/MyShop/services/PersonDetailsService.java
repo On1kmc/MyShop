@@ -34,6 +34,7 @@ public class PersonDetailsService implements UserDetailsService {
             Optional<Market> market = marketRepo.findByEmail(email);
             if (market.isEmpty())
                 throw new UsernameNotFoundException("Not found!");
+            Hibernate.initialize(market.get().getProducts());
             return new PersonDetails(market.get());
         }
         Hibernate.initialize(person.get().getCart().getProducts());

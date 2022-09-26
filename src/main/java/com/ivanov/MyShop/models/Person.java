@@ -17,38 +17,28 @@ public class Person  implements Authority {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column(name = "email")
     @Email
     @NotEmpty
     private String email;
-
     @Column(name = "name")
     @NotEmpty
     @Size(max = 30, min = 3)
     private String name;
-
     @Column(name = "lastname")
     @NotEmpty
     @Size(max = 30, min = 3, message = "Короткая фамилия")
     private String lastName;
-
     @Column(name = "patronymic")
     private String patronymic;
-
     @Column(name = "address")
     @Size(min = 10, max = 200)
     private String address;
-
     @Column(name = "password")
     private String password;
-
     @Column(name = "role")
     private String role;
-
-
-
-    @OneToMany(mappedBy = "person")
+    @OneToMany(mappedBy = "person", fetch = FetchType.EAGER)
     @Cascade(org.hibernate.annotations.CascadeType.DELETE)
     private List<Order> ordersList;
 
@@ -147,6 +137,22 @@ public class Person  implements Authority {
 
     public void setCart(Cart cart) {
         this.cart = cart;
+    }
+
+    public List<Order> getOrdersList() {
+        return ordersList;
+    }
+
+    public void setOrdersList(List<Order> ordersList) {
+        this.ordersList = ordersList;
+    }
+
+    public Bill getBill() {
+        return bill;
+    }
+
+    public void setBill(Bill bill) {
+        this.bill = bill;
     }
 }
 

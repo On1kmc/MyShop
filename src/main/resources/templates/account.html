@@ -231,22 +231,24 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Order</th>
-                                                    <th>Date</th>
-                                                    <th>Status</th>
-                                                    <th>Total</th>
-                                                    <th>Actions</th>	 	 	 	
+                                                    <th>Заказ</th>
+                                                    <th>Дата</th>
+                                                    <th>Статус</th>
+                                                    <th>Сумма</th>
+                                                    <th>Действия</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>
+                                                <tr th:each="order : ${person.getOrdersList()}">
+                                                    <td th:text="${order.getId()}"></td>
+                                                    <td th:text="${#dates.format(order.getDate(), 'dd-MM-yyyy')}"></td>
+                                                    <td>Выполняется</td>
+                                                    <td>Сумма</td>
                                                     <td>
-                                                        dsfsdf
+                                                        <form id="deleteOrder" th:method="DELETE" th:action="@{/orders/{id}(id=${order.getId()})}">
+                                                            <a class="view" onclick = 'document.getElementById("deleteOrder").submit();' th:formaction="@{/orders/{id}(id=${order.getId()})}" th:method="DELETE" href="#">Удалить</a>
+                                                        </form>
                                                     </td>
-                                                    <td>May 10, 2018</td>
-                                                    <td>Processing</td>
-                                                    <td>$25.00 for 1 item </td>
-                                                    <td><a class="view" href="cart.html">view</a></td>
                                                 </tr>
                                             </tbody>
                                         </table>

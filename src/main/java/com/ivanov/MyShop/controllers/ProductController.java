@@ -5,8 +5,6 @@ import com.ivanov.MyShop.models.Person;
 import com.ivanov.MyShop.models.Product;
 import com.ivanov.MyShop.security.PersonDetails;
 import com.ivanov.MyShop.services.ProductService;
-import com.ivanov.MyShop.services.RegistrationService;
-import org.hibernate.Hibernate;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -14,16 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
-
-import javax.imageio.ImageIO;
 import javax.validation.Valid;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 @Controller
 @RequestMapping("/product")

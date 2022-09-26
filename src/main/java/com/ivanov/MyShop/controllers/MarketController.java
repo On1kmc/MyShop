@@ -6,6 +6,7 @@ import com.ivanov.MyShop.security.PersonDetails;
 import com.ivanov.MyShop.services.MarketService;
 import com.ivanov.MyShop.services.PasswordService;
 import com.ivanov.MyShop.services.PeopleService;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -40,6 +41,7 @@ public class MarketController {
         PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
         model.addAttribute("person", personDetails.getPerson());
         model.addAttribute("products", marketService.findById(id).getProducts());
+        model.addAttribute("market", marketService.findById(id));
         return "market/market-page";
     }
 
@@ -52,7 +54,7 @@ public class MarketController {
         if (authority.getId() != id || !authority.getRole().equals("ROLE_MARKET")) return "404";
 
         Market market = (Market) authority;
-        model.addAttribute("person", authority);
+        model.addAttribute("person", market);
         model.addAttribute("marketForUpdate", market);
         return "market/lk";
     }
