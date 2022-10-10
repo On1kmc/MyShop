@@ -22,15 +22,12 @@ public class RegistrationService {
 
     private final PasswordEncoder passwordEncoder;
 
-    private final MarketService marketService;
-
     @Autowired
-    public RegistrationService(PersonRepo personRepo, MarketRepo marketRepo, CartRepo cartRepo, PasswordEncoder passwordEncoder, MarketService marketService) {
+    public RegistrationService(PersonRepo personRepo, MarketRepo marketRepo, CartRepo cartRepo, PasswordEncoder passwordEncoder) {
         this.personRepo = personRepo;
         this.marketRepo = marketRepo;
         this.cartRepo = cartRepo;
         this.passwordEncoder = passwordEncoder;
-        this.marketService = marketService;
     }
 
     @Transactional

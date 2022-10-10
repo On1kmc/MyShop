@@ -46,7 +46,10 @@ public class ProductController {
     }
 
     @GetMapping("/new")
-    public String addProduct(@ModelAttribute Product product) {
+    public String addProduct(Model model, @ModelAttribute Product product) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
+        model.addAttribute("person", personDetails.getPerson());
         return "product/add-new-product";
     }
 

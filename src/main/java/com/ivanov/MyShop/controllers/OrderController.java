@@ -14,18 +14,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/orders")
 public class OrderController {
 
     private final OrderService orderService;
 
-    private final CartService cartService;
-
     @Autowired
-    public OrderController(OrderService orderService, CartService cartService) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.cartService = cartService;
     }
 
 

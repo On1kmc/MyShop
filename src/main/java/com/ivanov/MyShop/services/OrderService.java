@@ -1,14 +1,16 @@
 package com.ivanov.MyShop.services;
 
+import com.ivanov.MyShop.models.Cart;
 import com.ivanov.MyShop.models.Order;
 import com.ivanov.MyShop.models.Person;
 import com.ivanov.MyShop.models.Product;
+import com.ivanov.MyShop.repo.CartRepo;
 import com.ivanov.MyShop.repo.OrderRepo;
+import com.ivanov.MyShop.repo.PersonRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -31,9 +33,9 @@ public class OrderService {
         order.setOrderProducts(person.getCart().getProducts());
         order.setPerson(person);
         order.setDate(new Date());
-        orderRepo.save(order);
         person.getOrdersList().add(order);
         person.getCart().setProducts(Collections.emptyList());
+        orderRepo.save(order);
     }
 
     @Transactional
@@ -43,5 +45,10 @@ public class OrderService {
         orderList.remove(orderForDelete);
         person.setOrdersList(orderList);
         orderRepo.delete(orderForDelete);
+    }
+
+    public void initOrderList(Person person) {
+        List<Order> orderList = orderRepo.findByPersonId(person.getId());
+        person.setOrdersList(orderList);
     }
 }

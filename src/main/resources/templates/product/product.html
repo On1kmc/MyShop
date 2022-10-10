@@ -250,7 +250,7 @@
                                 <p><span class="price" th:text="'Артикул: ' + ${product2.getArticle()}">Артикул</span></p>
                             </div>
                             <div class="pro-ref mb-15">
-                                <p><span class="in-stock">Цена</span><span class="sku" th:text="${product2.getPrice()} + 'p.'"></span></p>
+                                <p><span class="in-stock">Цена</span><span class="sku" th:text="${#numbers.formatDecimal(product2.getPrice(), 0, 2)} + ' RUB'"></span></p>
                             </div>
                             <div class="box-quantity">
                                 <form action="#">

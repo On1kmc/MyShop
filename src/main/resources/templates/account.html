@@ -216,7 +216,8 @@
                         <div class="col-lg-2">
                             <!-- Nav tabs -->
                             <ul class="nav flex-column dashboard-list" role="tablist">
-                                <li><a class="active" data-toggle="tab" href="#orders">Мои заказы</a></li>
+                                <li><a class="active" data-toggle="tab" href="#dashboard">Информация</a></li>
+                                <li><a data-toggle="tab" href="#orders">Мои заказы</a></li>
                                 <li><a data-toggle="tab" href="#cart">Корзина</a></li>
                                 <li><a data-toggle="tab" href="#account-details">Редактировать аккаунт</a></li>
                                 <li><a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" th:method="POST" href="#">Выйти</a></li>
@@ -225,6 +226,11 @@
                         <div class="col-lg-10">
                             <!-- Tab panes -->
                             <div class="tab-content dashboard-content mt-all-40">
+                                <div id="dashboard" class="tab-pane active">
+                                    <h3>Личный кабинет</h3>
+                                    <p th:text="'Привет, ' + ${person.getName()}"/>
+                                    <p>Здесь вы можете управлять своими заказами и корзиной, редактировать личную информацию, поменять пароль.</p>
+                                </div>
                                 <div id="orders" class="tab-pane fade">
                                     <h3>Orders</h3>
                                     <div class="table-responsive">
@@ -235,7 +241,7 @@
                                                     <th>Дата</th>
                                                     <th>Статус</th>
                                                     <th>Сумма</th>
-                                                    <th>Действия</th>
+                                                    <th align="center">Действия</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -246,7 +252,7 @@
                                                     <td>Сумма</td>
                                                     <td>
                                                         <form id="deleteOrder" th:method="DELETE" th:action="@{/orders/{id}(id=${order.getId()})}">
-                                                            <a class="view" onclick = 'document.getElementById("deleteOrder").submit();' th:formaction="@{/orders/{id}(id=${order.getId()})}" th:method="DELETE" href="#">Удалить</a>
+                                                            <button type="submit" style="border:none;height:8;width:25"  class="view" th:formaction="@{/orders/{id}(id=${order.getId()})}">Удалить</button>
                                                         </form>
                                                     </td>
                                                 </tr>

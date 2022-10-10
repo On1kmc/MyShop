@@ -1,0 +1,33 @@
+version: "1"
+
+volumes:
+  postgresdb_volume:
+  photo_volume:
+
+services:
+  myshop:
+    build: .
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=baeldung
+      - SPRING_DATASOURCE_PASSWORD=baeldung
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    volumes:
+      - photo_volume:/upload
+    ports:
+      - "8081:8080"
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+
+    volumes:
+      - postgresdb_volume:/data/db
+
+    environment:
+      - "POSTGRES_USER=baeldung"
+      - "POSTGRES_PASSWORD=baeldung"
+      - "PGDATA=/data/db"
+
+    ports:
+      - "5433:5432"

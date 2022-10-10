@@ -3,9 +3,9 @@ package com.ivanov.MyShop.controllers;
 import com.ivanov.MyShop.models.Authority;
 import com.ivanov.MyShop.models.Person;
 import com.ivanov.MyShop.security.PersonDetails;
+import com.ivanov.MyShop.services.OrderService;
 import com.ivanov.MyShop.services.PasswordService;
 import com.ivanov.MyShop.services.PeopleService;
-import com.ivanov.MyShop.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -15,35 +15,36 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.text.SimpleDateFormat;
 
 
 @Controller
 @RequestMapping("/account")
 public class AccountController {
 
-    private final RegistrationService registrationService;
-
     private final PeopleService peopleService;
 
     private final PasswordService passwordService;
 
+    private final OrderService orderService;
+
     @Autowired
-    public AccountController(RegistrationService registrationService, PeopleService peopleService, PasswordService passwordService) {
-        this.registrationService = registrationService;
+    public AccountController(PeopleService peopleService, PasswordService passwordService, OrderService orderService) {
         this.peopleService = peopleService;
         this.passwordService = passwordService;
+        this.orderService = orderService;
     }
 
 
-    @GetMapping("/{id}")
-    public String showLK(@PathVariable("id") int id, Model model) {
+    @GetMapping
+    public String showLK(Model model) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) auth.getPrincipal();
         Authority authority = personDetails.getPerson();
-        if (authority.getId() != id || authority.getRole().equals("ROLE_MARKET")) return "404";
+        if (authority.getRole().equals("ROLE_MARKET")) return "404";
 
         Person person = (Person) authority;
+        orderService.initOrderList(person);
+
 
         model.addAttribute("personForUpdate", person);
         model.addAttribute("person", person);
@@ -76,6 +77,6 @@ public class AccountController {
         Person personForUpdate = (Person) authority;
         peopleService.update(person, personForUpdate);
 
-        return "redirect:/account/" + id;
+        return "redirect:/account";
     }
 }

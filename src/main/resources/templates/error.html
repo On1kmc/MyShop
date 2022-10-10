@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Добавление товара</title>
+    <title>My Pet-Project Shop</title>
     <meta name="description" content="Default Description">
     <meta name="keywords" content="E-commerce" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +40,7 @@
     <link rel="stylesheet" th:href="@{/public/css/responsive.css}">
 
     <!-- modernizr js -->
-    <script th:src="@{/public/js/vendor/modernizr-2.8.3.min.js}"></script>
+    <script th:src="@{../public/js/vendor/modernizr-2.8.3.min.js}"></script>
 </head>
 
 <body>
@@ -72,21 +72,12 @@
                         </div>
                     </div>
                     <!-- Search Box End -->
+                        <!-- Header Top Right Start -->
                     <!-- Header Top Right Start -->
                     <div class="col-lg-4 col-md-12">
                         <div class="header-top-right">
                             <ul class="header-list-menu f-right">
-                                <!-- User Start -->
-                                <li><a th:href="@{/market/{id}(id=${person.getId()})}" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
-                                    <ul class="ht-dropdown">
-                                        <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account}">Личный кабинет</a></li>
-                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}(id=${person.getId()})}">Страница магазина</a></li>
-                                        <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
-                                        <li><form id = "logout" th:action="@{/logout}" method = "post">
-                                            <a onclick = 'document.getElementById("logout").submit();' th:formaction="@{/logout}" href="#">Выйти</a>
-                                        </form></li>
-                                    </ul>
-                                </li>
+
                                 <!-- User End -->
                             </ul>
                             <!-- Header-list-menu End -->
@@ -152,44 +143,7 @@
                         </div>
                     </div>
                     <!-- Search Box End -->
-                    <!-- Cartt Box Start -->
-                    <div class="col-lg-3 col-sm-7 col-7">
-                        <div class="cart-box text-right">
-                            <ul>
-                                <li><a th:href="@{/cart}" th:if="${person.getRole().equals('ROLE_USER')}"><i class="fa fa-shopping-basket"></i><span class="cart-counter" th:text="${person.getCart().getProducts().size()}">2</span></a>
-                                    <ul class="ht-dropdown main-cart-box" th:if="${person.getRole().equals('ROLE_USER')}">
-                                        <li>
-                                            <!-- Cart Box Start -->
-                                            <div class="single-cart-box" th:each="product1 : ${person.getCart().getProducts()}">
-                                                <div class="cart-img">
-                                                    <a href="#"><img th:src="@{upload/product/{article}/1.jpg(article=${product1.getArticle()})}" alt="cart-image"></a>
-                                                </div>
-                                                <div class="cart-content">
-                                                    <h6><a href="product.html" th:text="${product1.getName()}">Products Name</a></h6>
-                                                    <span th:text = "'1 × ' + ${product1.getPrice()}">1 × $399.00</span>
-                                                </div>
-                                                <a class="del-icone"><i class="fa fa-window-close-o"></i></a>
 
-                                            </div>
-                                            <!-- Cart Box End -->
-
-                                            <!-- Cart Footer Inner Start -->
-                                            <div class="cart-footer fix" th:if="${person.getCart().getProducts().size()}">
-                                                <h5>total :<span class="f-right">Сумма заказа</span></h5>
-                                                <div class="cart-actions">
-                                                    <a class="checkout" href="checkout.html">Оформить заказ</a>
-                                                </div>
-                                            </div>
-                                            <div class="cart-actions" th:unless="${person.getCart().getProducts().size()}">
-                                                <span class="f-center">Корзина пуста</span>
-                                            </div>
-                                            <!-- Cart Footer Inner End -->
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
                     <!-- Cartt Box End -->
                 </div>
                 <!-- Row End -->
@@ -198,86 +152,107 @@
         </div>
         <!-- Header Bottom End -->
     </header>
-
-    <!-- Header Area End -->
-    <!-- Breadcrumb Start -->
+        <!-- Header Area End -->    
+        <!-- Breadcrumb Start -->
         <div class="breadcrumb-area ptb-60 ptb-sm-30">
             <div class="container">
                 <div class="breadcrumb">
                     <ul>
-                        <li><a href="/">Главная</a></li>
-                        <li class="active"><a href="#">Добавить товар</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="404.html">404 Page</a></li>
                     </ul>
                 </div>
             </div>
             <!-- Container End -->
         </div>
         <!-- Breadcrumb End -->
-        <!-- Register Account Start -->
-        <div class="register-account pb-60">
+        <!-- Error 404 Area Start -->
+        <div class="error404-area pb-60 pt-20">
             <div class="container">
                 <div class="row">
-                    <div class="col-sm-12">
-                        <div class="register-title">
-                            <h3 class="mb-10">Добавление нового товара</h3>
+                    <div class="col-md-12">
+                        <div class="error-wrapper text-center">
+                            <div class="error-text">
+                                <h1>404</h1>
+                                <h2>Opps! PAGE NOT BE FOUND</h2>
+                                <p>Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable.</p>
+                            </div>
+                            <div class="search-error">
+                                <form id="search-form" action="#">
+                                    <input type="text" placeholder="Search">
+                                    <button><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="error-button">
+                                <a href="/">Back to home page</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Row End -->
-                <div class="row">
-                    <div class="col-sm-12">
-                        <form class="form-horizontal" th:action="@{/product/new}" th:method="POST" th:object="${product}" enctype="multipart/form-data">
-                            <fieldset>
-                                <legend>Укажите необходимую информацию</legend>
-                                <div class="form-group">
-                                    <label class="control-label" for="article"><span class="require">*</span>Артикул товара</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" th:field="*{article}" class="form-control" id="article" placeholder="Article">
-                                    </div>
-                                    <div style="color:red" th:if="${#fields.hasErrors('article')}" th:errors="*{article}">Error</div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="f-name"><span class="require">*</span>Название товара:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" th:field="*{name}" class="form-control" id="f-name" placeholder="Название">
-                                    </div>
-                                    <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="desc"><span class="require">*</span>Описание:</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" th:field="*{description}" class="form-control" id="desc" placeholder="Описание товара">
-                                    </div>
-                                    <div style="color:red" th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Error</div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="price"><span class="require"></span>Цена товара</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" th:field="*{price}" class="form-control" id="price" placeholder="255.00">
-                                    </div>
-                                    <div style="color:red" th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="control-label" for="file"><span class="require">*</span>Фотографии</label>
-                                    <div class="col-sm-10">
-                                        <input type="file" class="form-control" name="file" multiple id="file">
-                                    </div>
-                                </div>
-                            </fieldset>
-                            <div class="buttons newsletter-input">
-                                <div class="pull-right">I have read and agree to the <a href="#" class="agree"><b>Privacy Policy</b></a>
-                                    <!-- <input type="checkbox" name="agree" value="1"> &nbsp; -->
-                                    <input type="submit" value="Подвердить" class="newsletter-btn">
-                                </div>
-                            </div>
-                        </form>
+            </div>
+        </div>
+        <!-- Error 404 Area End -->
+    <!-- Company Policy Start -->
+    <div class="company-policy pb-60">
+        <div class="container">
+            <div class="row">
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/1.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Бесплатная доставка</h3>
+                            <p>Каждый заказ - доставим бесплатно!</p>
+                        </div>
                     </div>
                 </div>
-                <!-- Row End -->
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/2.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Онлайн Поддержка 24/7</h3>
+                            <p>Без праздников и выходных!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/3.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Возврат денег</h3>
+                            <p>Гарантируем возврат денег в течении 7 дней!</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
+                <!-- Single Policy Start -->
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-policy">
+                        <div class="icone-img">
+                            <img th:src="@{/public/img/icon/4.png}" alt="">
+                        </div>
+                        <div class="policy-desc">
+                            <h3>Персональные скидки</h3>
+                            <p>При заказе от 3000 р.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Single Policy End -->
             </div>
-            <!-- Container End -->
         </div>
-        <!-- Register Account End -->
+    </div>
+    <!-- Company Policy End -->
+
     <footer class="off-white-bg">
         <!-- Footer Top Start -->
         <div class="footer-top pt-50 pb-60">
@@ -363,36 +338,36 @@
         </div>
         <!-- Footer Top End -->
     </footer>
-        <!-- Footer End -->
-    </div>
-    <!-- Wrapper End -->
-    <!-- jquery 3.12.4 -->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <!-- mobile menu js  -->
-    <script src="js/jquery.meanmenu.min.js"></script>
-    <!-- scroll-up js -->
-    <script src="js/jquery.scrollUp.js"></script>
-    <!-- owl-carousel js -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- slick js -->
-    <script src="js/slick.min.js"></script>
-    <!-- wow js -->
-    <script src="js/wow.min.js"></script>
-    <!-- price slider js -->
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.countdown.min.js"></script>
-    <!-- nivo slider js -->
-    <script src="js/jquery.nivo.slider.js"></script>
-    <!-- fancybox js -->
-    <script src="js/jquery.fancybox.min.js"></script>
-    <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- popper -->
-    <script src="js/popper.js"></script>
-    <!-- plugins -->
-    <script src="js/plugins.js"></script>
-    <!-- main js -->
-    <script src="js/main.js"></script>
+    <!-- Footer End -->
+</div>
+<!-- Wrapper End -->
+<!-- jquery 3.12.4 -->
+<script th:src="@{/public/js/vendor/jquery-1.12.4.min.js}"></script>
+<!-- mobile menu js  -->
+<script th:src="@{/public/js/jquery.meanmenu.min.js}"></script>
+<!-- scroll-up js -->
+<script th:src="@{/public/js/jquery.scrollUp.js}"></script>
+<!-- owl-carousel js -->
+<script th:src="@{/public/js/owl.carousel.min.js}"></script>
+<!-- slick js -->
+<script th:src="@{/public/js/slick.min.js}"></script>
+<!-- wow js -->
+<script th:src="@{/public/js/wow.min.js}"></script>
+<!-- price slider js -->
+<script th:src="@{/public/js/jquery-ui.min.js}"></script>
+<script th:src="@{/public/js/jquery.countdown.min.js}"></script>
+<!-- nivo slider js -->
+<script th:src="@{/public/js/jquery.nivo.slider.js}"></script>
+<!-- fancybox js -->
+<script th:src="@{/public/js/jquery.fancybox.min.js}"></script>
+<!-- bootstrap -->
+<script th:src="@{/public/js/bootstrap.min.js}"></script>
+<!-- popper -->
+<script th:src="@{/public/js/popper.js}"></script>
+<!-- plugins -->
+<script th:src="@{/public/js/plugins.js}"></script>
+<!-- main js -->
+<script th:src="@{/public/js/main.js}"></script>
 </body>
 
 </html>

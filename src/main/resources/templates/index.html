@@ -79,7 +79,7 @@
                                     <!-- User Start -->
                                     <li><a th:href="@{/market/{id}(id=${person.getId()})}" th:text="${person.getEmail()}"><i class="fa fa-angle-down"></i></a>
                                     <ul class="ht-dropdown">
-                                        <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account/{id}(id=${person.getId()})}">Личный кабинет</a></li>
+                                        <li><a th:if="${person.getRole().equals('ROLE_USER')}" th:href="@{/account}">Личный кабинет</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}(id=${person.getId()})}">Страница магазина</a></li>
                                         <li><a th:if="${person.getRole().equals('ROLE_MARKET')}" th:href="@{/market/{id}/lk(id=${person.getId()})}">Управление</a></li>
                                         <li><form id = "logout" th:action="@{/logout}" method = "post">
@@ -174,11 +174,14 @@
                                                 <!-- Cart Box End -->
 
                                                 <!-- Cart Footer Inner Start -->
-                                                <div class="cart-footer fix">
+                                                <div class="cart-footer fix" th:if="${person.getCart().getProducts().size()}">
                                                     <h5>total :<span class="f-right">Сумма заказа</span></h5>
                                                     <div class="cart-actions">
                                                         <a class="checkout" href="checkout.html">Оформить заказ</a>
                                                     </div>
+                                                </div>
+                                                <div class="cart-actions" th:unless="${person.getCart().getProducts().size()}">
+                                                    <span class="f-center">Корзина пуста</span>
                                                 </div>
                                                 <!-- Cart Footer Inner End -->
                                             </li>

@@ -37,11 +37,11 @@ public class Product {
     private Market market;
 
 
-    @ManyToMany(mappedBy = "products")
-    private List<Cart> carts;
+//    @ManyToMany(mappedBy = "products")
+//    private List<Cart> carts;
 
-    @ManyToMany(mappedBy = "orderProducts")
-    private List<Order> orders;
+//    @ManyToMany(mappedBy = "orderProducts")
+//    private List<Order> orders;
 
 
     public int getId() {
@@ -91,12 +91,5 @@ public class Product {
     public void setMarket(Market market) {
         this.market = market;
     }
-
-    public List<Cart> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(List<Cart> carts) {
-        this.carts = carts;
-    }
 }
+
